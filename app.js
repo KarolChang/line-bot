@@ -14,7 +14,7 @@ bot.on('message', function (event) {
   // 使用event.reply(要回傳的訊息)方法可將訊息回傳給使用者
   let replyMsg = `剛剛有笨蛋說: ${event.message.text}`
   if (event.message.text.includes('我愛豬涵')) {
-    replyMsg = `帥氣的建喵說: ${event.message.text}/n恭喜獲得豬涵一隻!`
+    replyMsg = `帥氣的建喵說: ${event.message.text}\n恭喜獲得可愛豬涵一隻!`
   }
   event.reply(replyMsg).then(data => {
     // 當訊息成功回傳後的處理
