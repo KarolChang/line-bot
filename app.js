@@ -12,7 +12,10 @@ const bot = lineBot({
 bot.on('message', function (event) {
   // event.message.text是使用者傳給bot的訊息
   // 使用event.reply(要回傳的訊息)方法可將訊息回傳給使用者
-  const replyMsg = `剛剛有笨蛋說: ${event.message.text}`
+  let replyMsg = `剛剛有笨蛋說: ${event.message.text}`
+  if (event.message.text.includes('我愛豬涵')) {
+    let replyMsg = `帥氣的建喵說: ${event.message.text}/n恭喜獲得豬涵一隻!`
+  }
   event.reply(replyMsg).then(data => {
     // 當訊息成功回傳後的處理
     console.log('success')
