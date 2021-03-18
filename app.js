@@ -21,5 +21,5 @@ bot.on('message', function (event) {
 
 // Bot所監聽的webhook路徑與port
 bot.listen('/linewebhook', process.env.PORT || 3000, () => {
-    console.log('[BOT已準備就緒]')
+  console.log('LINE BOT START!')
 })
