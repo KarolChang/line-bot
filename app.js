@@ -1,6 +1,9 @@
 // 引用linebot SDK
 const lineBot = require('linebot')
 
+// 載入 getMovie
+const getMovie = require('./getMovie')
+
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
   channelId: process.env.Channel_Id,
@@ -25,9 +28,13 @@ bot.on('message', function (event) {
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
-  // 使用bot.push(userId, 要回傳的訊息)方法可將訊息主動發送給使用者
-  // bot.push(karol, '天竺鼠車車來了!')
 })
+
+// 主動發送訊息
+setTimeout(function () {
+  getMovie(bot, karol)
+}, 3000)
+
 
 // Bot所監聽的webhook路徑與port
 bot.listen('/linewebhook', process.env.PORT || 3000, () => {
