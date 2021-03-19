@@ -29,7 +29,9 @@ bot.on('message', function (event) {
     console.log('success')
   }).catch(error => console.log(error))
   // push
-  getMovie(bot, karol)
+  if (text.includes('電影')) {
+    getMovie(bot, karol)
+  }
 })
 
 // 主動發送訊息
