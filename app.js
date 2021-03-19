@@ -31,6 +31,7 @@ bot.on('message', function (event) {
   // push
   if (text.includes('電影')) {
     getMovie(bot, karol)
+    getMovie(bot, jianmiau)
   }
 })
 
