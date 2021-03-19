@@ -26,7 +26,6 @@ bot.on('message', function (event) {
     console.log('success')
   }).catch(error => console.log(error))
   // 使用bot.push(userId, 要回傳的訊息)方法可將訊息主動發送給使用者
-  bot.push(karol, '天竺鼠車車來了!')
   // bot.push(karol, '天竺鼠車車來了!')
 })
 
