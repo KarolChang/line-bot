@@ -28,12 +28,14 @@ bot.on('message', function (event) {
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
+  // push
+  getMovie(bot, karol)
 })
 
 // 主動發送訊息
-setTimeout(function () {
-  getMovie(bot, karol)
-}, 3000)
+// setTimeout(function () {
+//   getMovie(bot, karol)
+// }, 3000)
 
 
 // Bot所監聽的webhook路徑與port
