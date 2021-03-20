@@ -29,12 +29,12 @@ bot.on('message', function (event) {
   if (text.includes('我愛建喵') && userId === karol) {
     replyMsg = `可愛豬涵說: ${text}\n恭喜獲得建喵屁屁一坨!`
   }
+  if (text.includes('電影')) {
+    replyMsg = movieMsg()
+  }
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
-  if (text.includes('電影')) {
-    movieMsg(bot, userId)
-  }
 })
 
 // 主動發送訊息
