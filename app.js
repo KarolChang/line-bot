@@ -47,4 +47,3 @@ bot.on('message', function (event) {
 bot.listen('/linewebhook', process.env.PORT || 3000, () => {
   console.log('LINE BOT START!')
 })
-
