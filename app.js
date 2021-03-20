@@ -16,7 +16,7 @@ const karol = process.env.KAROL_USERID
 const jianmiau = process.env.JIANMIAU_USERID
 
 // 當有人傳送訊息給Bot時
-bot.on('message', function (event) {
+bot.on('message', async function (event) {
   console.log(event)
   // event.message.text是使用者傳給bot的訊息
   const text = event.message.text
@@ -30,19 +30,20 @@ bot.on('message', function (event) {
     replyMsg = `可愛豬涵說: ${text}\n恭喜獲得建喵屁屁一坨!`
   }
   if (text.includes('電影')) {
-    console.log('電影', movieMsg())
-    replyMsg = movieMsg()
+    replyMsg = await movieMsg()
+    console.log('電影', replyMsg)
   }
   console.log('reply之前', replyMsg)
   if (replyMsg === undefined || replyMsg === null || replyMsg === '') {
     replyMsg = '沒資料\ntype:' + typeof (replyMsg)
   }
-
   event.reply(replyMsg).then(data => {
-
     console.log('success')
   }).catch(error => console.log(error))
 })
+
+
+
 
 // 主動發送訊息
 // setTimeout(function () {
