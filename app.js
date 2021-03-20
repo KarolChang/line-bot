@@ -2,7 +2,7 @@
 const lineBot = require('linebot')
 
 // 載入 movieMsg
-const movieMsg = require('./movieMsg')
+// const movieMsg = require('./movieMsg')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
@@ -14,6 +14,27 @@ const bot = lineBot({
 // userId
 const karol = process.env.KAROL_USERID
 const jianmiau = process.env.JIANMIAU_USERID
+
+// function
+const axios = require('axios')
+
+const Url = 'https://movie-list.alphacamp.io/api/v1/movies/'
+const imageUrl = 'https://movie-list.alphacamp.io/posters/'
+
+function movieMsg () {
+  axios.get(Url).then(response => {
+    const movies = []
+    movies.push(...response.data.results)
+    const movie = movies[Math.floor(Math.random() * movies.length)]
+    const movieTitle = movie.title
+    const movieDescription = movie.description
+    const movieImage = imageUrl + movie.image
+    // console.log(userId, `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`)
+    // bot.push(userId, `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`)
+    return `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`
+  })
+    .catch(err => console.log(err))
+}
 
 // 當有人傳送訊息給Bot時
 bot.on('message', function (event) {
@@ -47,3 +68,4 @@ bot.on('message', function (event) {
 bot.listen('/linewebhook', process.env.PORT || 3000, () => {
   console.log('LINE BOT START!')
 })
+
