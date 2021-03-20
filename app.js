@@ -30,9 +30,16 @@ bot.on('message', function (event) {
     replyMsg = `可愛豬涵說: ${text}\n恭喜獲得建喵屁屁一坨!`
   }
   if (text.includes('電影')) {
+    console.log('電影', movieMsg())
     replyMsg = movieMsg()
   }
+  console.log('reply之前', replyMsg)
+  if (replyMsg === undefined || replyMsg === null || replyMsg === '') {
+    replyMsg = '沒資料\ntype:' + typeof (replyMsg)
+  }
+
   event.reply(replyMsg).then(data => {
+
     console.log('success')
   }).catch(error => console.log(error))
 })
