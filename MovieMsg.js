@@ -18,4 +18,4 @@ function movieMsg () {
     .catch(err => console.log(err))
 }
 
-module.exports = movieMsg
+module.exports = movieMsg()
