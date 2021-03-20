@@ -16,7 +16,8 @@ function movieMsg (event) {
     return event.reply(replyMsg).then(data => {
       console.log('success')
     }).catch(err => console.log(err))
-  .catch(err => console.log(err))
+      .catch(err => console.log(err))
+  })
 }
 
 module.exports = movieMsg
