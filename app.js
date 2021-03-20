@@ -2,7 +2,7 @@
 const lineBot = require('linebot')
 
 // 載入 movieMsg
-// const movieMsg = require('./movieMsg')
+const movieMsg = require('./movieMsg')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
@@ -29,9 +29,9 @@ bot.on('message', function (event) {
   if (text.includes('我愛建喵') && user === karol) {
     replyMsg = `可愛豬涵說: ${text}\n恭喜獲得建喵屁屁一坨!`
   }
-  // if (text.includes('電影')) {
-  //   replyMsg = movieMsg()
-  // }
+  if (text.includes('電影')) {
+    replyMsg = movieMsg()
+  }
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
