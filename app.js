@@ -36,8 +36,11 @@ bot.on('message', function (event) {
     replyMsg = `可愛豬涵說: ${text}\n恭喜獲得建喵屁屁一坨!`
   }
   if (text.includes('電影')) {
+    console.log('1')
     movieMsg(event)
+    console.log('2')
   }
+  console.log('3')
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
