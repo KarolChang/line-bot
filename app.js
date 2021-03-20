@@ -2,7 +2,7 @@
 const lineBot = require('linebot')
 
 // 載入 movieMsg
-const movieMsg = require('./movieMsg')
+// const movieMsg = require('./movieMsg')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
