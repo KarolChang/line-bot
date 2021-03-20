@@ -14,11 +14,11 @@ function movieMsg(bot, userId) {
     // const replyMsg = `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`
     // bot.push(userId, `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`)
     return `今日電影推薦: ${movieTitle}\n電影描述: ${movieDescription}\n電影海報: ${movieImage}`
-      // return event.reply(replyMsg).then(data => {
-      //   console.log('success')
-      // }).catch(err => console.log(err))
-      .catch(err => console.log(err))
+    // return event.reply(replyMsg).then(data => {
+    //   console.log('success')
+    // }).catch(err => console.log(err))
   })
+    .catch(err => console.log(err))
 }
 
 module.exports = movieMsg
