@@ -20,7 +20,7 @@ bot.on('message', function (event) {
   console.log(event)
   // event.message.text是使用者傳給bot的訊息
   const text = event.message.text
-  // const user = event.source.userId
+  const user = event.source.userId
   // 使用event.reply(要回傳的訊息)方法可將訊息回傳給使用者
   let replyMsg = `剛剛有笨蛋說: ${text}`
   if (text.includes('我愛豬涵') && user === jianmiau) {
