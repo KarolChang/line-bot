@@ -56,6 +56,9 @@ function closeAccount(text) {
     axios.get(baseUrl + params)
       .then((response) => {
         const amount = response.data
+        console.log('amount', amount)
+        console.log('amount(type)', typeof(amount))
+        console.log('Number(dataArr[2])', Number(dataArr[2]))
         if(amount !== Number(dataArr[2])) {
           resolve('金額不正確QQ')
         }
@@ -65,7 +68,7 @@ function closeAccount(text) {
       })
 
     // 結清
-    params = `?year=${dataArr[0]}&month=${dataArr[1]}&close=true}`
+    params = `?year=${dataArr[0]}&month=${dataArr[1]}&totalAmount=${dataArr[2]}}`
     console.log('請求網址:', baseUrl + params)
 
     axios.get(baseUrl + params)
