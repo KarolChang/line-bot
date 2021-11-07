@@ -36,7 +36,15 @@ bot.on('message', async function (event) {
   }
   if (text.slice(0, 4) === 'JM記帳') {
     console.log('JM記帳', text)
+    if(userId === jianmiau) {
+      replyMsg = await writeRecord(text, '建喵')
+      event.push(karol, '建喵已發佈: ', text)
+    } else {
+      replyMsg = await writeRecord(text, '豬涵')
+      event.push(jianmiau, '豬涵已發佈: ', text)
+    }
     replyMsg = userId === jianmiau ? await writeRecord(text, '建喵') : await writeRecord(text, '豬涵')
+    event.push(jianmiau, )
   }
   if(text.slice(0, 4) === '記帳加總') {
     console.log('記帳加總text', text)
@@ -47,11 +55,12 @@ bot.on('message', async function (event) {
     const amountRight = await checkCloseAmount(text)
     if(amountRight) {
       replyMsg = await closeAccount(text)
+      event.push(jianmiau, '豬涵已結清: ', text)
     } else {
       replyMsg = '金額不正確QQ'
     }
   }
-  
+
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
