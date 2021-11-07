@@ -32,19 +32,18 @@ bot.on('message', async function (event) {
   }
   if (text.includes('電影')) {
     replyMsg = await movieMsg()
+    bot.push(karol, 'hello')
     console.log('電影', replyMsg)
   }
   if (text.slice(0, 4) === 'JM記帳') {
     console.log('JM記帳', text)
     if(userId === jianmiau) {
       replyMsg = await writeRecord(text, '建喵')
-      event.push(karol, '建喵已發佈: ', text)
+      // bot.push(karol, `建喵已發佈: ${text}`)
     } else {
       replyMsg = await writeRecord(text, '豬涵')
-      event.push(jianmiau, '豬涵已發佈: ', text)
+      // bot.push(jianmiau, `豬涵已發佈: ${text}`)
     }
-    replyMsg = userId === jianmiau ? await writeRecord(text, '建喵') : await writeRecord(text, '豬涵')
-    event.push(jianmiau, )
   }
   if(text.slice(0, 4) === '記帳加總') {
     console.log('記帳加總text', text)
