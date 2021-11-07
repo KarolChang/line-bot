@@ -3,7 +3,7 @@ const lineBot = require('linebot')
 
 // 載入 functions
 const movieMsg = require('./functions/movieMsg')
-const writeRecord = require('./functions/expenseTracker')
+const { writeRecord, addAmount } = require('./functions/expenseTracker')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({

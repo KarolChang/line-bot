@@ -45,4 +45,4 @@ function addAmount(text) {
   })
 }
 
-module.exports = writeRecord
+module.exports = { writeRecord, addAmount }
