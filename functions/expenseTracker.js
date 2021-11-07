@@ -56,6 +56,7 @@ function closeAccount(text) {
     axios.get(baseUrl + params)
       .then((response) => {
         const amount = response.data
+        console.log('amount', typeof(amount), amount, Number(dataArr[2]))
         if(amount !== Number(dataArr[2])) {
           resolve('金額不正確QQ')
         }
