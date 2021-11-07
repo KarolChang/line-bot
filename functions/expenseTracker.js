@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const baseUrl = 'https://script.google.com/macros/s/AKfycbwnE26A5CyfSePy1zUn_3rMx84llJUH6DaAzdpii05kj-NRBNkB8FvZyJ3HWZ1JKVxS/exec'
+const baseUrl = 'https://script.google.com/macros/s/AKfycbxX4zLpzYJso2aJ_fB8Z6x02ZmQnGZPSN9E2bnyJXbZZMH2x6UkDp0NFeTaIwJJ_H6g/exec'
 
 function writeRecord(text) {
   return new Promise((resolve, reject) => {
