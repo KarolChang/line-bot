@@ -40,7 +40,7 @@ bot.on('message', async function (event) {
   }
   if(text.slice(0, 4) === '記帳加總') {
     console.log('記帳加總text', text)
-    replyMsg = await addAmount()
+    replyMsg = await addAmount(text)
     console.log('記帳加總replyMsg', replyMsg)
   }
   event.reply(replyMsg).then(data => {
