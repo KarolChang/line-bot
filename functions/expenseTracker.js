@@ -42,7 +42,7 @@ function addAmount(text) {
   })
 }
 
-function closeAccount(text) {
+function checkCloseAmount(text) {
   return new Promise((resolve, reject) => {
     const dataArr = text.split(' ').slice(1)
     if(dataArr.length !== 3) {
@@ -58,12 +58,20 @@ function closeAccount(text) {
         const amount = response.data
         console.log('amount', typeof(amount), amount, Number(dataArr[2]))
         if(amount !== Number(dataArr[2])) {
-          return resolve('金額不正確QQ')
+          resolve(false)
+        } else {
+          resolve(true)
         }
       })
       .catch((err) => {
         reject('error: ', err)
       })
+  })
+}
+
+function closeAccount(text) {
+  return new Promise((resolve, reject) => {
+    const dataArr = text.split(' ').slice(1)
 
     // 結清
     params = `?year=${dataArr[0]}&month=${dataArr[1]}&totalAmount=${dataArr[2]}`
@@ -80,4 +88,4 @@ function closeAccount(text) {
   })
 }
 
-module.exports = { writeRecord, addAmount, closeAccount }
+module.exports = { writeRecord, addAmount, checkCloseAmount, closeAccount }
