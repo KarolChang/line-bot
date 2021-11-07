@@ -35,8 +35,13 @@ bot.on('message', async function (event) {
     console.log('電影', replyMsg)
   }
   if (text.slice(0, 4) === 'JM記帳') {
+    console.log('JM記帳', text)
     replyMsg = userId === jianmiau ? await writeRecord(text, '建喵') : await writeRecord(text, '豬涵')
-    console.log('記帳', replyMsg)
+  }
+  if(text.slice(0, 4) === '記帳加總') {
+    console.log('記帳加總text', text)
+    replyMsg = await addAmount()
+    console.log('記帳加總replyMsg', replyMsg)
   }
   event.reply(replyMsg).then(data => {
     console.log('success')
