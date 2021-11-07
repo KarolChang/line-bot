@@ -1,1 +1,0 @@
-heroku logs --tail --app linebot20210318

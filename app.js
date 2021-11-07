@@ -1,8 +1,9 @@
 // 引用linebot SDK
 const lineBot = require('linebot')
 
-// 載入 movieMsg
-const movieMsg = require('./movieMsg')
+// 載入 functions
+const movieMsg = require('./functions/movieMsg')
+const writeRecord = require('./functions/expenseTracker')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
@@ -33,17 +34,14 @@ bot.on('message', async function (event) {
     replyMsg = await movieMsg()
     console.log('電影', replyMsg)
   }
-  console.log('reply之前', replyMsg)
-  if (replyMsg === undefined || replyMsg === null || replyMsg === '') {
-    replyMsg = '沒資料\ntype:' + typeof (replyMsg)
+  if (text.slice(0, 5) === '我要記帳 ') {
+    replyMsg = await writeRecord(text)
+    console.log('記帳', replyMsg)
   }
   event.reply(replyMsg).then(data => {
     console.log('success')
   }).catch(error => console.log(error))
 })
-
-
-
 
 // 主動發送訊息
 // setTimeout(function () {
