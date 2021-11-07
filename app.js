@@ -35,7 +35,7 @@ bot.on('message', async function (event) {
     console.log('電影', replyMsg)
   }
   if (text.slice(0, 5) === '我要記帳 ') {
-    replyMsg = await writeRecord(text)
+    replyMsg = await writeRecord("我要記帳 2021 11 07 日 鯊鯊 ikea 599")
     console.log('記帳', replyMsg)
   }
   event.reply(replyMsg).then(data => {
