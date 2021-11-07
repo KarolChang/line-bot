@@ -42,4 +42,40 @@ function addAmount(text) {
   })
 }
 
-module.exports = { writeRecord, addAmount }
+function closeAccount(text) {
+  return new Promise((resolve, reject) => {
+    const dataArr = text.split(' ').slice(1)
+    if(dataArr.length !== 3) {
+      resolve('輸入格式不正確！')
+    }
+
+    // 比對金額
+    let params = `?year=${dataArr[0]}&month=${dataArr[1]}`
+    console.log('請求網址:', baseUrl + params)
+    
+    axios.get(baseUrl + params)
+      .then((response) => {
+        const amount = response.data
+        if(amount !== Number(dataArr[2])) {
+          resolve('金額不正確QQ')
+        }
+      })
+      .catch((err) => {
+        reject('error: ', err)
+      })
+
+    // 結清
+    params = `?year=${dataArr[0]}&month=${dataArr[1]}&close=true}`
+    console.log('請求網址:', baseUrl + params)
+
+    axios.get(baseUrl + params)
+      .then((response) => {
+        resolve(`${dataArr[0]}/${dataArr[1]} $${dataArr[2]}已結清~\n跟偷吃豬涵豆腐的建喵算帳:\nhttps://docs.google.com/spreadsheets/d/1vaEXzsvnZotcS88xntc5_DTvF7w1NNJ8bu4dej_4lio/edit#gid=0`)
+      })
+      .catch((err) => {
+        reject('error: ', err)
+      })
+  })
+}
+
+module.exports = { writeRecord, addAmount, closeAccount }

@@ -3,7 +3,7 @@ const lineBot = require('linebot')
 
 // 載入 functions
 const movieMsg = require('./functions/movieMsg')
-const { writeRecord, addAmount } = require('./functions/expenseTracker')
+const { writeRecord, addAmount, closeAccount } = require('./functions/expenseTracker')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
@@ -41,6 +41,10 @@ bot.on('message', async function (event) {
   if(text.slice(0, 4) === '記帳加總') {
     console.log('記帳加總text', text)
     replyMsg = await addAmount(text)
+  }
+  if(text.slice(0, 4) === 'JM結清') {
+    console.log('JM結清text', text)
+    replyMsg = await closeAccount(text)
   }
   event.reply(replyMsg).then(data => {
     console.log('success')
