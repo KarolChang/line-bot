@@ -10,7 +10,7 @@ function writeRecord(text, person) {
     if(dataArr.length !== 7) {
       resolve('輸入格式不正確！')
     }
-    const params = `?year=${dataArr[0]}&month=${dataArr[1]}&date=${dataArr[2]}&day=${encodeURIComponent(dataArr[3])}&item=${encodeURIComponent(dataArr[4])}&merchant=${encodeURIComponent(dataArr[5])}&amount=${dataArr[6]}&record_person=${encodeURIComponent(person)}&record_time=${formatTime()}`
+    const params = `?year=${dataArr[0]}&month=${dataArr[1]}&date=${dataArr[2]}&day=${encodeURIComponent(dataArr[3])}&item=${encodeURIComponent(dataArr[4])}&merchant=${encodeURIComponent(dataArr[5])}&amount=${dataArr[6]}&record_person=${encodeURIComponent(person)}&record_time=${encodeURIComponent(formatTime())}`
     console.log('請求網址:', baseUrl + params)
 
     axios.get(baseUrl + params)
