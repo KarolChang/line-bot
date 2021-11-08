@@ -53,7 +53,11 @@ bot.on('message', async function (event) {
     const amountRight = await checkCloseAmount(text)
     if(amountRight) {
       replyMsg = await closeAccount(text)
-      event.push(jianmiau, '豬涵已結清: ', text)
+      if(userId === karol) {
+        bot.push(jianmiau, '豬涵已結清: ', text)
+      } else {
+        bot.push(karol, '建喵已結清: ', text)
+      }
     } else {
       replyMsg = '金額不正確QQ'
     }
