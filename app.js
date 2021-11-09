@@ -4,6 +4,7 @@ const lineBot = require('linebot')
 // 載入 functions
 const movieMsg = require('./functions/movieMsg')
 const { writeRecord, addAmount, checkCloseAmount, closeAccount } = require('./functions/expenseTracker')
+const keywordPush = require('./functions/keywordPush')
 
 // 用於辨識Line Channel的資訊
 const bot = lineBot({
@@ -42,9 +43,7 @@ bot.on('message', async function (event) {
     } else {
       replyMsg = await writeRecord(text, '豬涵')
       bot.push(jianmiau, `豬涵已發佈: ${text}`)
-      // if(text.includes('餐') || text.includes('點心')) {
-      //   bot.push(jianmiau, '豬涵吃飽飽🥳 好開心(moon grin)')
-      // }
+      keywordPush(text, jianmiau)
     }
   }
   if(text.slice(0, 4) === '記帳加總') {
@@ -64,19 +63,6 @@ bot.on('message', async function (event) {
     } else {
       replyMsg = '金額不正確QQ'
     }
-  }
-
-  if(text.includes('餐') || text.includes('點心')) {
-    replyMsg = '豬涵吃飽飽🥳 好開心(moon grin)'
-    // bot.push(karol, '豬涵吃飽飽🥳 好開心(moon grin)')
-  }
-  if(text.includes('棒球')) {
-    replyMsg = '幫豬涵的統一獅加油😆'
-    // bot.push(karol, '幫豬涵的統一獅加油😆')
-  }
-  if(text.includes('建喵')) {
-    replyMsg = '建喵欠錢錢🥺 打屁屁(屁)'
-    // bot.push(karol, '幫豬涵的統一獅加油😆')
   }
 
   event.reply(replyMsg).then(data => {
