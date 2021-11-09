@@ -64,6 +64,9 @@ bot.on('message', async function (event) {
       replyMsg = '金額不正確QQ'
     }
   }
+  if(text === '馬鈴薯') {
+    bot.push(jianmiau, '答對了！馬鈴薯最好吃了😋')
+  }
 
   event.reply(replyMsg).then(data => {
     console.log('success')

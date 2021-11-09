@@ -17,9 +17,6 @@ function keywordPush(bot, text, person) {
   if(text.includes('車車')) {
     bot.push(person, '你知道豬涵最喜歡的車車是哪一隻嘛🤔 猜對有獎勵喔！')
   }
-  if(text.includes('馬鈴薯')) {
-    bot.push(person, '答對了！馬鈴薯最好吃了😋')
-  }
 }
 
 module.exports = keywordPush
