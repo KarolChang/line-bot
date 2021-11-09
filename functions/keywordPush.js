@@ -8,6 +8,18 @@ function keywordPush(text, person) {
   if(text.includes('建喵')) {
     bot.push(person, '建喵壞壞 懲罰打屁屁🥺')
   }
+  if(text.includes('豬涵')) {
+    bot.push(person, '豬涵最喜歡建喵...的屁屁😘')
+  }
+  if(text.includes('鯊鯊')) {
+    bot.push(person, '豬涵最喜歡咬鯊鯊🦈 不要阻止她！')
+  }
+  if(text.includes('車車')) {
+    bot.push(person, '你知道豬涵最喜歡的車車是哪一隻嘛🤔')
+  }
+  if(text.includes('馬鈴薯')) {
+    bot.push(person, '答對了！馬鈴薯最好吃了😋')
+  }
 }
 
 module.exports = keywordPush
