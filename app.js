@@ -43,7 +43,7 @@ bot.on('message', async function (event) {
     } else {
       replyMsg = await writeRecord(text, '豬涵')
       bot.push(jianmiau, `豬涵已發佈: ${text}`)
-      keywordPush(text, jianmiau)
+      keywordPush(bot, text, jianmiau)
     }
   }
   if(text.slice(0, 4) === '記帳加總') {

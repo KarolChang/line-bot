@@ -1,4 +1,4 @@
-function keywordPush(text, person) {
+function keywordPush(bot, text, person) {
   if(text.includes('餐') || text.includes('點心')) {
     bot.push(person, '豬涵吃飽飽 好開心🥳')
   }
