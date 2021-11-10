@@ -50,6 +50,10 @@ bot.on('message', async function (event) {
     console.log('記帳加總text', text)
     replyMsg = await addAmount(text)
   }
+  if(text.slice(0, 4) === '本月記帳加總') {
+    console.log('本月記帳加總text', text)
+    replyMsg = await addAmount(text)
+  }
   if(text.slice(0, 4) === 'JM結清') {
     console.log('JM結清text', text)
     const amountRight = await checkCloseAmount(text)
@@ -63,9 +67,6 @@ bot.on('message', async function (event) {
     } else {
       replyMsg = '金額不正確QQ'
     }
-  }
-  if(text === '馬鈴薯') {
-    bot.push(jianmiau, '答對了！馬鈴薯最好吃了😋')
   }
 
   event.reply(replyMsg).then(data => {

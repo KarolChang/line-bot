@@ -24,17 +24,23 @@ function writeRecord(text, person) {
 
 function addAmount(text) {
   return new Promise((resolve, reject) => {
-    const dataArr = text.split(' ').slice(1)
-    if(dataArr.length !== 2) {
+    const dataArr = text.split(' ')
+    
+    if(dataArr.length !== 3 || dataArr.length !== 1) {
       resolve('輸入格式不正確！')
+    } else {
+      if(dataArr.length === 1) {
+        dataArr.push((new Date().getYear() + 1900).toString(), (new Date().getMonth()+1).toString())
+      }
     }
-    const params = `?year=${dataArr[0]}&month=${dataArr[1]}`
+    
+    const params = `?year=${dataArr[1]}&month=${dataArr[2]}`
     console.log('請求網址:', baseUrl + params)
 
     axios.get(baseUrl + params)
       .then((response) => {
         const amount = response.data
-        resolve(`${dataArr[0]}/${dataArr[1]} 總金額: ${amount}`)
+        resolve(`${dataArr[1]}/${dataArr[2]} 總金額: ${amount}`)
       })
       .catch((err) => {
         reject('error: ', err)
