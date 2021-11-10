@@ -26,7 +26,7 @@ function addAmount(text) {
   return new Promise((resolve, reject) => {
     const dataArr = text.split(' ')
     console.log('dataArr.length',dataArr.length)
-    if(dataArr.length !== 3 || dataArr.length !== 1) {
+    if(dataArr.length !== 3 && dataArr.length !== 1) {
       resolve('輸入格式不正確！')
     } else {
       if(dataArr.length === 1) {
