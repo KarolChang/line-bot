@@ -25,7 +25,6 @@ function writeRecord(text, person) {
 function addAmount(text) {
   return new Promise((resolve, reject) => {
     const dataArr = text.split(' ')
-    console.log('dataArr.length',dataArr.length)
     if(dataArr.length !== 3 && dataArr.length !== 1) {
       resolve('輸入格式不正確！')
     } else {
@@ -33,7 +32,6 @@ function addAmount(text) {
         dataArr.push((new Date().getYear() + 1900).toString(), (new Date().getMonth()+1).toString())
       }
     }
-    console.log('dataArr',dataArr)
     
     const params = `?year=${dataArr[1]}&month=${dataArr[2]}`
     console.log('請求網址:', baseUrl + params)
