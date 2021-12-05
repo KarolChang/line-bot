@@ -15,5 +15,8 @@
     "axios": "^0.21.1",
     "dayjs": "^1.10.7",
     "linebot": "^1.6.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
   }
 }

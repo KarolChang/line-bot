@@ -23,9 +23,9 @@ function keywordPush(bot, text, person) {
   if (text.includes("住宿")) {
     bot.push(person, "壞建喵偷偷拐豬涵去哪裡🥲 小心屁屁爛掉！");
   }
-  if (text.includes("車票")) {
-    bot.push(person, "豬涵乖乖上車囉🥰 建喵掰掰~");
-  }
+  // if (text.includes("車票")) {
+  //   bot.push(person, "豬涵乖乖上車囉🥰 建喵掰掰~");
+  // }
 }
 
-module.exports = keywordPush;
+module.exports = keywordPush
