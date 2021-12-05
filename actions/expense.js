@@ -15,6 +15,7 @@ async function expense(text, bot, userId) {
   const dataArr = text.split(' ').slice(1)
   if(dataArr.length !== 7) {
     replyMsg = '輸入格式不正確！'
+    return replyMsg
   }
   // 記帳： JM記帳 年 月 日 星期 項目 商家 金額
   if (text.slice(0, 4) === 'JM記帳') {
@@ -22,10 +23,11 @@ async function expense(text, bot, userId) {
       replyMsg = await writeRecord(dataArr, '建喵', bot, karol)
     } else {
       replyMsg = await writeRecord(dataArr, '豬涵', bot, karol)
-      console.log()
+      console.log('replyMsg1', replyMsg)
       // keywordPush(bot, text, jianmiau)
     }
   }
+  console.log('replyMsg2', replyMsg)
   // // 記帳加總： JM記帳加總 年 月
   // if (text.slice(0, 4) === "JM記帳加總") {
   //   console.log("記帳加總text", text);
