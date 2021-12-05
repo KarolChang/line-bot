@@ -23,11 +23,9 @@ async function expense(text, bot, userId) {
       replyMsg = await writeRecord(dataArr, '建喵', bot, karol)
     } else {
       replyMsg = await writeRecord(dataArr, '豬涵', bot, karol)
-      console.log('replyMsg1', replyMsg)
       // keywordPush(bot, text, jianmiau)
     }
   }
-  console.log('replyMsg2', replyMsg)
   // // 記帳加總： JM記帳加總 年 月
   // if (text.slice(0, 4) === "JM記帳加總") {
   //   console.log("記帳加總text", text);

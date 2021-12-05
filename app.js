@@ -43,7 +43,7 @@ bot.on("message", async function (event) {
   }
   if(text.slice(0, 2) === 'JM') {
     console.log('JM', text)
-    replyMsg = expense(text, bot, userId)
+    replyMsg = await expense(text, bot, userId)
   }
 
   console.log('replyMsg3', replyMsg)
