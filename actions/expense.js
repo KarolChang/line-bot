@@ -10,7 +10,7 @@ const {
 } = require('./functions/expenseTracker')
 const keywordPush = require('./functions/keywordPush')
 
-function expense(text, bot) {
+async function expense(text, bot) {
   let replyMsg = ''
   // 記帳： JM記帳 年 月 日 星期 項目 商家 金額
   if (text.slice(0, 4) === 'JM記帳') {
