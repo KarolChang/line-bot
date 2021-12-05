@@ -5,11 +5,6 @@ const baseUrl = process.env.GOOGLE_SHEET_URL
 
 function writeRecord(text, person, bot, pushPerson) {
   return new Promise((resolve, reject) => {
-    const dataArr = text.split(' ').slice(1)
-    if(dataArr.length !== 7) {
-      resolve('輸入格式不正確！')
-      return
-    }
     const params = `?year=${dataArr[0]}&month=${dataArr[1]}&date=${dataArr[2]}&day=${encodeURIComponent(dataArr[3])}&item=${encodeURIComponent(dataArr[4])}&merchant=${encodeURIComponent(dataArr[5])}&amount=${dataArr[6]}&record_person=${encodeURIComponent(person)}&record_time=${encodeURIComponent(formatTime())}`
 
     axios.get(baseUrl + params)

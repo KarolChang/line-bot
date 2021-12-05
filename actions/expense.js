@@ -12,12 +12,17 @@ const keywordPush = require('../functions/keywordPush')
 
 async function expense(text, bot, userId) {
   let replyMsg = ''
+  const dataArr = text.split(' ').slice(1)
+  if(dataArr.length !== 7) {
+    replyMsg = '輸入格式不正確！'
+  }
   // 記帳： JM記帳 年 月 日 星期 項目 商家 金額
   if (text.slice(0, 4) === 'JM記帳') {
     if (userId === jianmiau) {
       replyMsg = await writeRecord(text, '建喵', bot, karol)
     } else {
       replyMsg = await writeRecord(text, '豬涵', bot, karol)
+      console.log()
       // keywordPush(bot, text, jianmiau)
     }
   }
