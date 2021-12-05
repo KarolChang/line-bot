@@ -46,41 +46,12 @@ bot.on("message", async function (event) {
     replyMsg = await expense(text, bot, userId)
   }
 
-  console.log('replyMsg3', replyMsg)
-
-  // if (text.slice(0, 4) === 'JM記帳') {
-  //   console.log('JM記帳', text)
-  //   expense(text)
-  // }
-  // if (text.slice(0, 4) === "JM記帳加總") {
-  //   console.log("記帳加總text", text);
-  //   replyMsg = await addAmount(text);
-  // }
-  // if (text === "JM本月記帳加總") {
-  //   console.log("本月記帳加總text", text);
-  //   replyMsg = await addAmount(text);
-  // }
-  // if (text.slice(0, 4) === "JM結清") {
-  //   console.log("JM結清text", text);
-  //   const amountRight = await checkCloseAmount(text);
-  //   if (amountRight) {
-  //     replyMsg = await closeAccount(text);
-  //     if (userId === karol) {
-  //       bot.push(jianmiau, `豬涵已結清: ${text}`);
-  //     } else {
-  //       bot.push(karol, `建喵已結清: ${text}`);
-  //     }
-  //   } else {
-  //     replyMsg = "金額不正確QQ";
-  //   }
-  // }
-
   event
     .reply(replyMsg)
     .then((data) => {
-      console.log("success");
+      console.log('success')
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log('error', error))
 });
 
 // 主動發送訊息
