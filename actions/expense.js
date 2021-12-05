@@ -21,31 +21,32 @@ async function expense(text, bot, userId) {
       // keywordPush(bot, text, jianmiau)
     }
   }
-  // 記帳加總： JM記帳加總 年 月
-  if (text.slice(0, 4) === "JM記帳加總") {
-    console.log("記帳加總text", text);
-    replyMsg = await addAmount(text);
-  }
-  // 本月記帳加總： JM本月記帳加總
-  if (text === "JM本月記帳加總") {
-    console.log("本月記帳加總text", text);
-    replyMsg = await addAmount(text);
-  }
-  // 結清： JM結清 年 月 當月金額
-  if (text.slice(0, 4) === "JM結清") {
-    console.log("JM結清text", text);
-    const amountRight = await checkCloseAmount(text);
-    if (amountRight) {
-      replyMsg = await closeAccount(text);
-      if (userId === karol) {
-        bot.push(jianmiau, `豬涵已結清: ${text}`);
-      } else {
-        bot.push(karol, `建喵已結清: ${text}`);
-      }
-    } else {
-      replyMsg = "金額不正確QQ";
-    }
-  }
+  // // 記帳加總： JM記帳加總 年 月
+  // if (text.slice(0, 4) === "JM記帳加總") {
+  //   console.log("記帳加總text", text);
+  //   replyMsg = await addAmount(text);
+  // }
+  // // 本月記帳加總： JM本月記帳加總
+  // if (text === "JM本月記帳加總") {
+  //   console.log("本月記帳加總text", text);
+  //   replyMsg = await addAmount(text);
+  // }
+  // // 結清： JM結清 年 月 當月金額
+  // if (text.slice(0, 4) === "JM結清") {
+  //   console.log("JM結清text", text);
+  //   const amountRight = await checkCloseAmount(text);
+  //   if (amountRight) {
+  //     replyMsg = await closeAccount(text);
+  //     if (userId === karol) {
+  //       bot.push(jianmiau, `豬涵已結清: ${text}`);
+  //     } else {
+  //       bot.push(karol, `建喵已結清: ${text}`);
+  //     }
+  //   } else {
+  //     replyMsg = "金額不正確QQ";
+  //   }
+  // }
+  return replyMsg
 }
 
 module.exports = { expense }

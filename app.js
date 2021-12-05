@@ -46,6 +46,8 @@ bot.on("message", async function (event) {
     replyMsg = expense(text, bot, userId)
   }
 
+  console.log('replyMsg', replyMsg)
+
   // if (text.slice(0, 4) === 'JM記帳') {
   //   console.log('JM記帳', text)
   //   expense(text)
