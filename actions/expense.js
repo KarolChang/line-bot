@@ -7,8 +7,8 @@ const {
   addAmount,
   checkCloseAmount,
   closeAccount,
-} = require('./functions/expenseTracker')
-const keywordPush = require('./functions/keywordPush')
+} = require('../functions/expenseTracker')
+const keywordPush = require('../functions/keywordPush')
 
 async function expense(text, bot) {
   let replyMsg = ''
