@@ -16,12 +16,13 @@ async function expense(text, bot, userId) {
     if (userId === jianmiau) {
       replyMsg = await writeRecord(dataArr, '建喵')
       bot.push(karol, `建喵已發佈: ${text}`)
+      keywordPush(bot, text, jianmiau)
+      keywordPush(bot, text, karol)
     } else {
       replyMsg = await writeRecord(dataArr, '豬涵')
-      bot.push(karol, `豬涵已發佈: ${text}`)
+      bot.push(jianmiau, `豬涵已發佈: ${text}`)
+      keywordPush(bot, text, jianmiau)
       keywordPush(bot, text, karol)
-      // bot.push(jianmiau, `豬涵已發佈: ${text}`)
-      // keywordPush(bot, text, jianmiau)
     }
   }
   // 記帳加總： JM月記帳加總 年 月
@@ -49,6 +50,12 @@ async function expense(text, bot, userId) {
       replyMsg = '金額不正確QQ'
     }
   }
+
+  // jm-expense
+  if (text.slice(0, 5) === 'JM+記帳') {
+    replyMsg = await createRecord()
+  }
+
   return replyMsg
 }
 
