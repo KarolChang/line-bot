@@ -4,6 +4,7 @@ const jianmiau = process.env.JIANMIAU_USERID
 
 const { writeRecord, addAmount, checkCloseAmount, closeAccount } = require('../functions/expenseTracker')
 const keywordPush = require('../functions/keywordPush')
+const { createRecord } = require('../functions/jmExpense')
 
 async function expense(text, bot, userId) {
   let replyMsg = '輸入格式不正確！'
@@ -53,7 +54,10 @@ async function expense(text, bot, userId) {
 
   // jm-expense
   if (text.slice(0, 5) === 'JM+記帳') {
-    replyMsg = await createRecord()
+    if (userId === jianmiau) {
+    } else {
+      replyMsg = await createRecord(dataArr, '豬涵')
+    }
   }
 
   return replyMsg

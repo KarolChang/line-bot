@@ -8,7 +8,7 @@ async function createRecord(dataArr, person) {
       item: dataArr[1],
       merchant: dataArr[2],
       amount: dataArr[3],
-      recorder: dataArr[4]
+      recorder: person
     }
     await API.create(input)
     return 'Hello'
@@ -16,3 +16,5 @@ async function createRecord(dataArr, person) {
     console.error('error', error)
   }
 }
+
+module.exports = { createRecord }
