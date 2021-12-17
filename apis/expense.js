@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require('axios')
 const baseURL = 'http://jm-expense-mysql.herokuapp.com'
 const apiHelper = axios.create({
   baseURL

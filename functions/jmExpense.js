@@ -1,4 +1,4 @@
-import API from '../apis/expense'
+const API = require('../apis/expense')
 
 async function createRecord(dataArr, person) {
   // ['2021/12/16', '晚餐', '水餃', '八方', '金額', '豬涵']
