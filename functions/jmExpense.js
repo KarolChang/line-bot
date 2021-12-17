@@ -25,7 +25,7 @@ async function getRecordsAmount() {
     const nowMonth = new Date().getMonth() + 1
     let allAmount = 0
     data.forEach((item) => {
-      if (new Date(item.date).getFullYear === nowYear && new Date(item.date).getMonth + 1 === nowMonth) {
+      if (new Date(item.date).getFullYear() === nowYear && new Date(item.date).getMonth() + 1 === nowMonth) {
         allAmount += item.amount
       }
     })
