@@ -4,7 +4,7 @@ const jianmiau = process.env.JIANMIAU_USERID
 
 const { writeRecord, addAmount, checkCloseAmount, closeAccount } = require('../functions/expenseTracker')
 const keywordPush = require('../functions/keywordPush')
-const { createRecord } = require('../functions/jmExpense')
+const { createRecord, getRecordsAmount } = require('../functions/jmExpense')
 
 async function expense(text, bot, userId) {
   let replyMsg = '輸入格式不正確！'
@@ -13,14 +13,13 @@ async function expense(text, bot, userId) {
   // 記帳： JM記帳 年 月 日 星期 項目 商家 金額
   if (text.slice(0, 4) === 'JM記帳') {
     if (userId === jianmiau) {
-      // replyMsg = await createRecord(dataArr, '建喵')
+      replyMsg = await createRecord(dataArr, '建喵')
       bot.push(karol, `建喵已發佈: ${text}`)
-      // keywordPush(bot, text, jianmiau)
+      keywordPush(bot, text, jianmiau)
       keywordPush(bot, text, karol)
     } else {
       replyMsg = await createRecord(dataArr, '豬涵')
-      // bot.push(jianmiau, `豬涵已發佈: ${text}`)
-      bot.push(karol, `豬涵已發佈: ${text}`)
+      bot.push(jianmiau, `豬涵已發佈: ${text}`)
       keywordPush(bot, text, jianmiau)
       keywordPush(bot, text, karol)
     }
