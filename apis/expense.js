@@ -5,6 +5,9 @@ const apiHelper = axios.create({
 })
 
 const API = {
+  getAll: () => {
+    return apiHelper.get('/record/all')
+  },
   create: (data) => {
     return apiHelper.post('/record/create', data)
   },
