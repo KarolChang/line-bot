@@ -5,10 +5,10 @@ const apiHelper = axios.create({
 })
 
 const API = {
-  create(data) {
+  create: (data) => {
     return apiHelper.post('/record/create', data)
   },
-  close(data) {
+  close: (data) => {
     return apiHelper.put('/close', data)
   }
 }

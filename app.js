@@ -42,7 +42,7 @@ bot.on('message', async function (event) {
     console.log('電影', replyMsg)
   }
   if (text.slice(0, 2) === 'JM') {
-    console.log('JM', text)
+    console.log(text)
     replyMsg = await expense(text, bot, userId)
   }
 
