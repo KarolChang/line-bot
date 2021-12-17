@@ -11,7 +11,7 @@ async function expense(text, bot, userId) {
   const dataArr = text.split(' ').slice(1)
   /////////////// web版本 ///////////////
   // 記帳： JM記帳 年 月 日 星期 項目 商家 金額
-  if (text.slice(0, 5) === 'JM記帳') {
+  if (text.slice(0, 4) === 'JM記帳') {
     if (userId === jianmiau) {
       // replyMsg = await createRecord(dataArr, '建喵')
       bot.push(karol, `建喵已發佈: ${text}`)
@@ -31,7 +31,7 @@ async function expense(text, bot, userId) {
 
   /////////////// excel版本 ///////////////
   // 記帳： JM+記帳 年 月 日 星期 項目 商家 金額
-  if (text.slice(0, 4) === 'JM+記帳') {
+  if (text.slice(0, 5) === 'JM+記帳') {
     if (dataArr.length !== 7) {
       return replyMsg
     }
@@ -48,7 +48,7 @@ async function expense(text, bot, userId) {
     }
   }
   // 記帳加總： JM+月記帳加總 年 月
-  if (text.slice(0, 7) === 'JM+月記帳加總') {
+  if (text.slice(0, 8) === 'JM+月記帳加總') {
     if (dataArr.length !== 2) return replyMsg
     replyMsg = await addAmount(dataArr)
   }
@@ -58,7 +58,7 @@ async function expense(text, bot, userId) {
     replyMsg = await addAmount(dataArr)
   }
   // 結清： JM+結清 年 月 當月金額
-  if (text.slice(0, 4) === 'JM+結清') {
+  if (text.slice(0, 5) === 'JM+結清') {
     if (dataArr.length !== 3) return replyMsg
     const amountRight = await checkCloseAmount(dataArr)
     if (amountRight) {
