@@ -19,7 +19,8 @@ async function expense(text, bot, userId) {
       keywordPush(bot, text, karol)
     } else {
       replyMsg = await createRecord(dataArr, '豬涵')
-      bot.push(jianmiau, `豬涵已發佈: ${text}`)
+      // bot.push(jianmiau, `豬涵已發佈: ${text}`)
+      bot.push(karol, `豬涵已發佈: ${text}`)
       keywordPush(bot, text, jianmiau)
       keywordPush(bot, text, karol)
     }
