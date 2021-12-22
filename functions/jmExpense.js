@@ -60,6 +60,8 @@ async function closeMonthlyNotClosedTotal(dataArr, userId) {
     // 去掉最後一個逗號
     const formattedRecordIds = recordIds.slice(0, recordIds.length - 1)
     if (totalAmount !== amount) return '金額不正確QQ'
+    console.log('formattedRecordIds', formattedRecordIds)
+    console.log('totalAmount', totalAmount)
     await API.close(formattedRecordIds, totalAmount, userId === jianmiau ? '建喵' : '豬涵')
     if (userId === karol) {
       bot.push(jianmiau, `豬涵已結清: ${text}`)
