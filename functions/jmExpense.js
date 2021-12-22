@@ -68,9 +68,9 @@ async function closeMonthlyNotClosedTotal(dataArr, userId, bot) {
       recorder: userId === jianmiau ? '建喵' : '豬涵'
     })
     if (userId === karol) {
-      bot.push(jianmiau, `豬涵已結清: ${text}`)
+      bot.push(jianmiau, `豬涵已結清: ${dataArr[0]}/${dataArr[1]} $${dataArr[2]}`)
     } else {
-      bot.push(karol, `建喵已結清: ${text}`)
+      bot.push(karol, `建喵已結清: ${dataArr[0]}/${dataArr[1]} $${dataArr[2]}`)
     }
     return `${dataArr[0]}/${dataArr[1]} $${dataArr[2]} 已結清~\nhttps://karolchang.github.io/jm-expense-vue-ts/record`
   } catch (err) {
