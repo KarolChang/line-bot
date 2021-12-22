@@ -39,7 +39,7 @@ async function getRecordsAmount() {
 }
 
 // 取得當月未結清加總，若金額相同就結算
-async function closeMonthlyNotClosedTotal(dataArr, userId) {
+async function closeMonthlyNotClosedTotal(dataArr, userId, bot) {
   try {
     const { data } = await API.getAll()
     const year = Number(dataArr[0])
