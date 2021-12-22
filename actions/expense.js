@@ -31,13 +31,8 @@ async function expense(text, bot, userId) {
   // 結清： JM結清 年 月 月金額
   if (text.slice(0, 4) === 'JM結清') {
     if (dataArr.length !== 3) return replyMsg
-    const user = userId === jianmiau ? '建喵' : '豬涵'
-    replyMsg = await closeMonthlyNotClosedTotal(dataArr, user)
-    if (userId === karol) {
-      bot.push(jianmiau, `豬涵已結清: ${text}`)
-    } else {
-      bot.push(karol, `建喵已結清: ${text}`)
-    }
+    // const user = userId === jianmiau ? '建喵' : '豬涵'
+    replyMsg = await closeMonthlyNotClosedTotal(dataArr, userId)
   }
 
   /////////////// excel版本 ///////////////
