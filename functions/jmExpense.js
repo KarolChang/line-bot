@@ -72,6 +72,7 @@ async function closeMonthlyNotClosedTotal(dataArr, userId, bot) {
     } else {
       bot.push(karol, `建喵已結清: ${text}`)
     }
+    return `${dataArr[0]}/${dataArr[1]} $${dataArr[2]} 已結清~\nhttps://karolchang.github.io/jm-expense-vue-ts/record`
   } catch (err) {
     console.error(`[ERROR]${err}`)
   }
