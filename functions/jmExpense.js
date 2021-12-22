@@ -1,4 +1,7 @@
 const API = require('../apis/expense')
+// userId
+const karol = process.env.KAROL_USERID
+const jianmiau = process.env.JIANMIAU_USERID
 
 // 新增資料
 async function createRecord(dataArr, person) {
