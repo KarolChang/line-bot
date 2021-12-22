@@ -4,7 +4,7 @@ const jianmiau = process.env.JIANMIAU_USERID
 
 const { writeRecord, addAmount, checkCloseAmount, closeAccount } = require('../functions/expenseTracker')
 const keywordPush = require('../functions/keywordPush')
-const { createRecord, getRecordsAmount } = require('../functions/jmExpense')
+const { createRecord, getRecordsAmount, closeMonthlyNotClosedTotal } = require('../functions/jmExpense')
 
 async function expense(text, bot, userId) {
   let replyMsg = '輸入格式不正確！'
@@ -27,6 +27,17 @@ async function expense(text, bot, userId) {
   // 本月記帳加總： JM本月記帳加總
   if (text === 'JM本月記帳加總') {
     replyMsg = await getRecordsAmount()
+  }
+  // 結清： JM結清 年 月 月金額
+  if (text.slice(0, 4) === 'JM結清') {
+    if (dataArr.length !== 3) return replyMsg
+    const user = userId === jianmiau ? '建喵' : '豬涵'
+    replyMsg = await closeMonthlyNotClosedTotal(dataArr, user)
+    if (userId === karol) {
+      bot.push(jianmiau, `豬涵已結清: ${text}`)
+    } else {
+      bot.push(karol, `建喵已結清: ${text}`)
+    }
   }
 
   /////////////// excel版本 ///////////////
