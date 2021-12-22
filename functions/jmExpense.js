@@ -62,7 +62,11 @@ async function closeMonthlyNotClosedTotal(dataArr, userId) {
     if (totalAmount !== amount) return '金額不正確QQ'
     console.log('formattedRecordIds', formattedRecordIds)
     console.log('totalAmount', totalAmount)
-    await API.close(formattedRecordIds, totalAmount, userId === jianmiau ? '建喵' : '豬涵')
+    await API.close({
+      records: formattedRecordIds,
+      totalAmount,
+      recorder: userId === jianmiau ? '建喵' : '豬涵'
+    })
     if (userId === karol) {
       bot.push(jianmiau, `豬涵已結清: ${text}`)
     } else {
