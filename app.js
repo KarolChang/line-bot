@@ -83,6 +83,6 @@ bot.listen('/linewebhook', process.env.PORT || 3000, () => {
   console.log('LINE BOT START!')
 })
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.EXPRESS_PORT || 3001, () => {
   console.log('Express is running')
 })
