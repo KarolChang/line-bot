@@ -2,9 +2,11 @@
 const lineBot = require('linebot')
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cors())
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -58,6 +60,7 @@ bot.on('message', async function (event) {
 // express app
 app.get('/jianmiau', (req, res) => {
   bot.push(jianmiau, '哈囉 笨蛋建喵')
+  bot.push(karol, '哈囉 笨蛋建喵')
   return res.send('哈哈')
 })
 
