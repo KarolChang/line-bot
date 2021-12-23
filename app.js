@@ -1,5 +1,5 @@
 // 引用linebot SDK
-// const lineBot = require('linebot')
+const lineBot = require('linebot')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
