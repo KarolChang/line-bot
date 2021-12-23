@@ -59,7 +59,7 @@ bot.on('message', async function (event) {
 
 // express app
 app.get('/jianmiau', (req, res) => {
-  bot.push(jianmiau, '哈囉 笨蛋建喵')
+  // bot.push(jianmiau, '哈囉 笨蛋建喵')
   bot.push(karol, '哈囉 笨蛋建喵')
   return res.send('哈哈')
 })
@@ -83,6 +83,6 @@ bot.listen('/linewebhook', process.env.PORT || 3000, () => {
   console.log('LINE BOT START!')
 })
 
-app.listen(process.env.EXPRESS_PORT, 3001, () => {
+app.listen(process.env.EXPRESS_PORT || 3001, () => {
   console.log('Express is running')
 })
