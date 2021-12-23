@@ -44,6 +44,6 @@ bot.on('message', async function (event) {
 })
 
 const linebotParser = bot.parser()
-app.post('/', linebotParser)
+router.post('/', linebotParser)
 
 module.exports = router
