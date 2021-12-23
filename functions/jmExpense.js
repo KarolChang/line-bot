@@ -20,15 +20,19 @@ async function createRecord(dataArr, person) {
   }
 }
 
-// 取得全部資料
-async function getRecordsAmount() {
+// 單月未結清加總
+async function getMonthlyNotClosedTotal(year = '', month = '') {
   try {
     const { data } = await API.getAll()
-    const nowYear = new Date().getFullYear()
-    const nowMonth = new Date().getMonth() + 1
+    const nowYear = year ? Number(year) : new Date().getFullYear()
+    const nowMonth = month ? Number(month) : new Date().getMonth() + 1
     let allAmount = 0
     data.forEach((item) => {
-      if (new Date(item.date).getFullYear() === nowYear && new Date(item.date).getMonth() + 1 === nowMonth) {
+      if (
+        new Date(item.date).getFullYear() === nowYear &&
+        new Date(item.date).getMonth() + 1 === nowMonth &&
+        !item.isClosed
+      ) {
         allAmount += item.amount
       }
     })
@@ -60,8 +64,6 @@ async function closeMonthlyNotClosedTotal(dataArr, userId, bot) {
     // 去掉最後一個逗號
     const formattedRecordIds = recordIds.slice(0, recordIds.length - 1)
     if (totalAmount !== amount) return '金額不正確QQ'
-    console.log('formattedRecordIds', formattedRecordIds)
-    console.log('totalAmount', totalAmount)
     await API.close({
       records: formattedRecordIds,
       totalAmount,
@@ -72,10 +74,10 @@ async function closeMonthlyNotClosedTotal(dataArr, userId, bot) {
     } else {
       bot.push(karol, `建喵已結清: ${dataArr[0]}/${dataArr[1]} $${dataArr[2]}`)
     }
-    return `${dataArr[0]}/${dataArr[1]} $${dataArr[2]} 已結清~\nhttps://karolchang.github.io/jm-expense-vue-ts/record`
+    return `${dataArr[0]}/${dataArr[1]} $${dataArr[2]} 已結清~\nhttps://karolchang.github.io/jm-expense-vue-ts/closedRecord`
   } catch (err) {
     console.error(`[ERROR]${err}`)
   }
 }
 
-module.exports = { createRecord, getRecordsAmount, closeMonthlyNotClosedTotal }
+module.exports = { createRecord, getMonthlyNotClosedTotal, closeMonthlyNotClosedTotal }
