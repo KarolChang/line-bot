@@ -24,12 +24,12 @@ async function expense(text, bot, userId) {
       keywordPush(bot, text, karol)
     }
   }
-  // 本月未結清金額： JM本月未結清金額
-  if (text === 'JM本月未結清金額') {
+  // 本月未結算金額： JM本月未結算金額
+  if (text === 'JM本月未結算金額') {
     replyMsg = await getMonthlyNotClosedTotal()
   }
-  // 月未結清金額： JM月未結清金額 年 月
-  if (text.slice(0, 8) === 'JM月未結清金額') {
+  // 月未結算金額： JM月未結算金額 年 月
+  if (text.slice(0, 8) === 'JM月未結算金額') {
     replyMsg = await getMonthlyNotClosedTotal(dataArr[0], dataArr[1])
   }
   // 結清： JM結清 年 月 月金額
