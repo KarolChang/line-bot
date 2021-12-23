@@ -79,9 +79,13 @@ app.post('/message', (req, res) => {
 // }, 3000)
 
 // Bot所監聽的webhook路徑與port
-bot.listen('/linewebhook', process.env.PORT || 3000, () => {
-  console.log('LINE BOT START!')
-})
+// bot.listen('/linewebhook', process.env.PORT || 3000, () => {
+//   console.log('LINE BOT START!')
+// })
+
+const linebotParser = bot.parser()
+app.post('/linewebhook', linebotParser)
+console.log('LINE BOT START!')
 
 app.listen(process.env.EXPRESS_PORT || 3001, () => {
   console.log('Express is running')
