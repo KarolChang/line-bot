@@ -6,14 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "dev": "node app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "body-parser": "^1.19.1",
     "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
     "linebot": "^1.6.1"
   },
   "devDependencies": {
