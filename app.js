@@ -27,8 +27,8 @@ const karol = process.env.KAROL_USERID
 const jianmiau = process.env.JIANMIAU_USERID
 
 // 載入 route
-const lineBotRoute = require('./routes/lineBot')
-app.use('/linewebhook', lineBotRoute)
+// const lineBotRoute = require('./routes/lineBot')
+// app.use('/linewebhook', lineBotRoute)
 
 // 當有人傳送訊息給Bot時
 bot.on('message', async function (event) {
