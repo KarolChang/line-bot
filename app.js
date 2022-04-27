@@ -1,12 +1,5 @@
 // 引用linebot SDK
 const lineBot = require('linebot')
-// const express = require('express')
-// const bodyParser = require('body-parser')
-// const cors = require('cors')
-// const app = express()
-// app.use(bodyParser.urlencoded({ extended: true }))
-// app.use(bodyParser.json())
-// app.use(cors())
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -25,10 +18,6 @@ const bot = lineBot({
 // userId
 const karol = process.env.KAROL_USERID
 const jianmiau = process.env.JIANMIAU_USERID
-
-// 載入 route
-// const lineBotRoute = require('./routes/lineBot')
-// app.use('/linewebhook', lineBotRoute)
 
 // 當有人傳送訊息給Bot時
 bot.on('message', async function (event) {
@@ -61,32 +50,7 @@ bot.on('message', async function (event) {
     .catch((error) => console.log('error', error))
 })
 
-// express app
-// app.get('/jianmiau', (req, res) => {
-//   // bot.push(jianmiau, '哈囉 笨蛋建喵')
-//   bot.push(karol, '哈囉 笨蛋建喵')
-//   return res.send('哈哈')
-// })
-
-// app.post('/message', (req, res) => {
-//   console.log('req.body', req.body)
-//   if (req.body.userId === karol || req.body.userId === jianmiau) {
-//     bot.push(req.body.userId, req.body.message)
-//     return res.json({ status: 'success', message: `已成功傳送{${message}}給[${userId}]` })
-//   }
-//   return res.json({ status: 'error', message: '未傳送訊息[userId不正確]' })
-// })
-
-// 主動發送訊息
-// setTimeout(function () {
-//   getMovie(bot, karol)
-// }, 3000)
-
 // Bot所監聽的webhook路徑與port
 bot.listen('/linewebhook', process.env.PORT || 3000, () => {
   console.log('LINE BOT START!')
 })
-
-// app.listen(process.env.EXPRESS_PORT || 3001, () => {
-//   console.log('Express is running')
-// })
